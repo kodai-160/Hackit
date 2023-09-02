@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/static/img/Z4wyzShf_400x400.jpeg" alt="logo" width="30" height="30" class="d-inline-block align-top">
+            工大生のためのSNS
+        </a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-lg btn-outline-primary mx-2" href="/login">ログイン</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-lg btn-outline-primary mx-2" href="/signup">新規登録</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row vh-100 justify-content-center align-items-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-3 text-primary">ようこそ、工大生のためのSNSへ</h1>
+            <h2 class="mt-5 text-secondary">サイト内メニュー</h2>
+            <div class="mt-4">
+                <h3 class="text-primary">Q&Aサイト</h3>
+                <p class="lead">授業や課外活動、日常での困りごとなど分からないことをどんどん質問しよう！</p>
+                <a href="/question_main" class="btn btn-primary btn-lg mx-2">Q&A掲示板</a>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-primary">学生ステーション問い合わせフォーム</h3>
+                <p class="lead">落し物探している方はこちらから</p>
+                <a href="/contact" class="btn btn-primary btn-lg mx-2">お問い合わせ</a>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-primary">混雑状況のつぶやきサイト</h3>
+                <p class="lead">食堂や自習室の混雑状況をつぶやこう！</p>
+                <a href="/tweet" class="btn btn-primary btn-lg mx-2">混雑状況のつぶやき</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <span class="text-muted">© 2023 工大生のためのSNS. All rights reserved.</span>
+    </div>
+</footer>
+
+{% endblock %}

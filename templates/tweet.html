@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>混雑状況のつぶやき</h1>
+    <div class="container">
+        <form action="/tweet" method="POST">
+            <div class="mb-3">
+                <label for="content" class="form-label">つぶやき内容</label>
+                <textarea class="form-control" id="detail" name="detail" rows="3"></textarea>
+            </div>
+            <a href="{{ url_for('main2') }}" class="btn btn-primary">戻る</a>
+            <button type="submit" class="btn btn-primary">つぶやく</button>
+        </form>
+    </div>
+    <div class="container">
+        <h5 class="mt-4">つぶやき一覧</h5>
+        {% for tweet in tweets %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ tweet.user }}</h5>
+                <p class="card-text">{{ tweet.detail }}</p>
+                <p class="card-text"><small class="text-muted">{{ tweet.post_date }}</small></p>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}
+```

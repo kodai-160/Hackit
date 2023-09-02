@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>回答ページ</h1>
+
+<div class="container">
+    <form action="/answer/{{ question.id }}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">名前</label>
+            <input type="text" class="form-control" id="user" name="user">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">回答内容</label>
+            <textarea class="form-control" id="detail" name="detail" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">回答する</button>
+    </form>
+</div>
+
+{% endblock %}

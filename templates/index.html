@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Q&A掲示板</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form action="/search_word" method="POST" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="キーワードを入力" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">検索</button>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a href="/question" class="btn btn-lg btn-outline-primary mx-2">質問する</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="list-group">
+                {% for question in questions %}
+                <div class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="mb-1">{{ question.user }}</h5>
+                        <small class="text-muted">{{ question.post_date }}</small>
+                    </div>
+                    <p class="mb-1">{{ question.detail }}</p>
+                    <a href="/detail/{{ question.id }}" class="btn btn-primary me-2">詳細</a>
+                    <a href="/answer/{{ question.id }}" class="btn btn-success me-2">回答する</a>
+                    <a href="/delete/{{ question.id }}" class="btn btn-danger">削除</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-start mt-4">
+        <div class="col-md-4">
+            <a href="{{ url_for('main2') }}" class="btn btn-lg btn-outline-primary mx-2">メインページへ</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

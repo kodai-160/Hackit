@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}学生ステーション問い合わせフォーム{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="my-4">学生ステーション問い合わせフォーム</h2>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-info">
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('contact_complete') }}" method="POST" novalidate="novalidate">
+        <div class="mb-3">
+            <label for="username" class="form-label">ユーザ名</label>
+            <input type="text" name="username" value="{{ username }}" class="form-control" placeholder="ユーザ名">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">メールアドレス</label>
+            <input type="text" name="email" value="{{ email }}" class="form-control" placeholder="メールアドレス">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">問い合わせ内容</label>
+            <textarea name="description" class="form-control" placeholder="問い合わせ内容">{{ description }}</textarea>
+        </div>
+        <div class="justify-content">
+            <a href="{{ url_for('main2') }}" class="btn btn-primary btn-block">戻る</a>
+            <button type="submit" class="btn btn-success">問い合わせ</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

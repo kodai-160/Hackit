@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>質問ページ</h1>
+
+<div class="container">
+    <form action="/question" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">名前</label>
+            <input type="text" class="form-control" id="user" name="user">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">質問内容</label>
+            <textarea class="form-control" id="detail" name="detail" rows="3"></textarea>
+        </div>
+        <a href="/question_main" class="btn btn-primary">戻る</a>
+        <button type="submit" class="btn btn-primary">質問する</button>
+    </form>
+</div>
+
+{% endblock %}
