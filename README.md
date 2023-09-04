@@ -1,2 +1,3 @@
 # Hackit
 Hackitで作ったcode
+ログイン機能と簡易的な掲示板の要素をpythonのフレームワークであるflaskをもちいて行った
